@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Sunday Folder — Curriculum for Small Churches</title>
+<title>The Sunday Folder — Free Student Ministry Curriculum</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -288,6 +288,46 @@
 
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
 
+  /* ===== Values ===== */
+  .values-list{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .values-list li{
+    display:flex;gap:14px;align-items:flex-start;background:#fff;border:1.75px solid var(--ink);
+    border-radius:14px;padding:16px 18px;box-shadow:0 8px 20px rgba(186,70,224,0.18);
+    font-size:0.98rem;line-height:1.55;color:var(--ink);
+  }
+  .values-list li::before{
+    content:'';flex-shrink:0;width:14px;height:14px;border-radius:50%;margin-top:5px;border:1.5px solid var(--ink);
+  }
+  .values-list li:nth-child(6n+1)::before{background:var(--red);}
+  .values-list li:nth-child(6n+2)::before{background:var(--blue);}
+  .values-list li:nth-child(6n+3)::before{background:var(--sage);}
+  .values-list li:nth-child(6n+4)::before{background:var(--gold);}
+  .values-list li:nth-child(6n+5)::before{background:var(--lav);}
+  .values-list li:nth-child(6n+6)::before{background:var(--red);}
+
+  /* ===== Scope & Sequence ===== */
+  .scope-block{margin-top:36px;}
+  .scope-block h3{font-family:'Baloo 2',sans-serif;font-size:1.2rem;margin-bottom:4px;}
+  .scope-block .scope-sub{font-size:0.88rem;color:var(--ink-soft);margin-bottom:18px;}
+  .scope-track{display:flex;gap:14px;flex-wrap:wrap;align-items:stretch;}
+  .scope-step{
+    flex:1;min-width:190px;background:#fff;border:1.75px solid var(--ink);border-radius:16px;
+    padding:20px;box-shadow:0 10px 22px rgba(186,70,224,0.2);position:relative;
+  }
+  .scope-step .grade{font-family:'Caveat',cursive;font-size:1.05rem;font-weight:700;color:var(--ink-soft);}
+  .scope-step h4{font-family:'Baloo 2',sans-serif;font-size:1.35rem;margin:2px 0 8px;}
+  .scope-step p{font-size:0.86rem;color:var(--ink-soft);line-height:1.5;margin:0;}
+  .scope-step .verse{margin-top:12px;padding-top:10px;border-top:1.5px dashed var(--line);font-size:0.78rem;font-style:italic;color:var(--ink-soft);line-height:1.5;}
+  .scope-step .step-dot{width:30px;height:30px;border-radius:9px;border:1.75px solid var(--ink);margin-bottom:10px;}
+  .scope-track.hs .scope-step:nth-child(1) .step-dot{background:var(--red);}
+  .scope-track.hs .scope-step:nth-child(2) .step-dot{background:var(--blue);}
+  .scope-track.hs .scope-step:nth-child(3) .step-dot{background:var(--sage);}
+  .scope-track.hs .scope-step:nth-child(4) .step-dot{background:var(--gold);}
+  .scope-track.ms .scope-step:nth-child(1) .step-dot{background:var(--lav);}
+  .scope-track.ms .scope-step:nth-child(2) .step-dot{background:var(--blue);}
+  .scope-track.ms .scope-step:nth-child(3) .step-dot{background:var(--sage);}
+  @media(max-width:780px){ .scope-track{flex-direction:column;} }
+
   /* ===== Lesson preview ===== */
   .preview-btn{
     display:inline-flex;align-items:center;gap:5px;background:none;border:none;
@@ -318,6 +358,27 @@
   .lesson-section ul{padding-left:18px;margin:0;font-size:0.92rem;line-height:1.6;color:var(--ink);}
   .lesson-section li{margin-bottom:4px;}
   .lesson-footer-note{font-size:0.78rem;color:var(--ink-soft);margin-top:18px;padding-top:14px;border-top:1.5px dashed var(--line);line-height:1.5;}
+
+  /* ===== View tabs (top-level page navigation) ===== */
+  .view-panel{display:none;}
+  .view-panel.active{display:block;}
+  .view-nav-wrap{background:var(--card);border-bottom:1.5px solid var(--line);position:sticky;top:73px;z-index:40;}
+  .view-nav{
+    max-width:1120px;margin:0 auto;padding:14px 28px;display:flex;gap:10px;flex-wrap:wrap;
+    justify-content:center;
+  }
+  .view-tab{
+    background:var(--paper-alt);border:1.75px solid var(--ink);border-radius:999px;
+    padding:9px 18px;font-size:0.85rem;font-weight:700;color:var(--ink-soft);
+    transition:background .15s ease,color .15s ease,transform .15s ease;
+  }
+  .view-tab:hover{color:var(--ink);transform:translateY(-1px);}
+  .view-tab.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+  @media(max-width:780px){
+    .view-nav{padding:12px 16px;gap:8px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;}
+    .view-tab{white-space:nowrap;font-size:0.8rem;padding:8px 14px;}
+    .view-nav-wrap{top:65px;}
+  }
 </style>
 </head>
 <body>
@@ -328,12 +389,6 @@
       <span class="logo-mark"><span class="tab"></span><span class="body"></span></span>
       The Sunday Folder
     </div>
-    <nav class="main-nav">
-      <a href="#services">Consulting</a>
-      <a href="#shop">Free Curriculum</a>
-      <a href="#ai-tools">AI Tools</a>
-      <a href="#about">About</a>
-    </nav>
     <div class="header-actions">
       <button class="cart-btn" id="cartToggle" aria-haspopup="true">
         Cart <span class="cart-count" id="cartCount">0</span>
@@ -347,11 +402,11 @@
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Free curriculum. Affordable consulting.</span>
-      <h1>Free curriculum your church can <em>actually</em> use.</h1>
-      <p class="lede">Every series is free — no cost, no login, no catch. That's how we meet you. What we actually do is affordable consulting for churches: custom curriculum, custom graphics, and AI coaching, all priced for a real church budget.</p>
+      <h1>Free student ministry curriculum your church can <em>actually</em> use.</h1>
+      <p class="lede">Every series here is completely free — no cost, no login, nothing hidden. We just want to serve your church well. And if you ever need something built just for you, we're here for that too: custom curriculum, custom graphics, and AI coaching, all priced with real church budgets in mind.</p>
       <div class="hero-actions">
-        <a href="#services" class="btn btn-primary">Talk about a custom build</a>
-        <a href="#shop" class="btn btn-ghost">Browse free curriculum</a>
+        <a href="#" class="btn btn-primary view-link" data-view="services">Talk about a custom build</a>
+        <a href="#" class="btn btn-ghost view-link" data-view="shop">Browse free curriculum</a>
       </div>
       <div style="margin-top:18px;display:inline-block;font-family:'Caveat',cursive;font-size:1.3rem;font-weight:700;color:var(--red-deep);transform:rotate(-3deg);">
         ★ free curriculum, always
@@ -398,11 +453,24 @@
   </div>
 </section>
 
+<!-- VIEW TABS -->
+<div class="view-nav-wrap">
+  <nav class="view-nav" id="viewNav">
+    <button class="view-tab active" data-view="shop">Free Student Ministry Curriculum</button>
+    <button class="view-tab" data-view="services">Consulting</button>
+    <button class="view-tab" data-view="leader">Volunteer Resources</button>
+    <button class="view-tab" data-view="ai-tools">AI Tools for Ministry</button>
+    <button class="view-tab" data-view="values">What We Believe</button>
+    <button class="view-tab" data-view="scope">Our Scope &amp; Sequence</button>
+    <button class="view-tab" data-view="about">Why This Exists</button>
+  </nav>
+</div>
+
 <!-- SHOP -->
-<section class="section" id="shop">
+<section class="section view-panel active" id="shop">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Curriculum Library</span>
+      <span class="eyebrow">Free student ministry curriculum</span>
       <h2>Pick a folder, not a headache.</h2>
       <p>Every series here is completely free to download. Filter by what you actually need this week, grab it, and go.</p>
     </div>
@@ -411,24 +479,22 @@
       <button class="tab-btn active" data-cat="all">All</button>
       <button class="tab-btn" data-cat="sunday">Sunday Curriculum (Free)</button>
       <button class="tab-btn" data-cat="camp">Weekend &amp; Camp (Free)</button>
-      <button class="tab-btn" data-cat="leader">Volunteer Resources ($7 each)</button>
     </div>
 
     <div class="tab-panel">
-      <p id="categoryNote" style="display:none;font-size:0.9rem;color:var(--ink-soft);margin-bottom:18px;background:var(--paper-alt);border:1.5px dashed var(--lav-deep);border-radius:10px;padding:12px 16px;"></p>
       <div class="product-grid" id="productGrid"></div>
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:0.95rem;color:var(--ink-soft);">Grab whatever's useful — it's free, always. Need something built just for your church? <a href="#services" style="color:var(--blue-deep);font-weight:700;text-decoration:underline;">See our consulting options below ↓</a></p>
+    <p style="text-align:center;margin-top:28px;font-size:0.95rem;color:var(--ink-soft);">Grab whatever's useful — it's free, always. Need something built just for your church? <a href="#" class="view-link" data-view="services" style="color:var(--blue-deep);font-weight:700;text-decoration:underline;">See our consulting options →</a></p>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="section" id="services" style="background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-top:90px;padding-bottom:90px;">
+<section class="section view-panel" id="services" style="background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-top:90px;padding-bottom:90px;">
   <div class="wrap">
     <div class="section-head" style="max-width:720px;">
-      <span class="eyebrow">What we actually do</span>
-      <h2>Free curriculum gets you in the door. Affordable consulting is the real thing we offer.</h2>
-      <p>Every series on this site will always be free — that's how churches find us and start to trust us. The actual work is consulting: custom curriculum builds, graphics, and AI coaching, priced so a small church can genuinely afford it, not just a big one.</p>
+      <span class="eyebrow">How we can help further</span>
+      <h2>Free curriculum because we care. Consulting for when you need more.</h2>
+      <p>Every series on this site will always be free — we just want to be helpful to your church. And for the seasons when you need something more specific, we also offer consulting: custom curriculum builds, graphics, and AI coaching, priced so a small church can genuinely afford it, not just a big one.</p>
     </div>
     <div class="service-grid">
       <div class="service-card sage">
@@ -464,8 +530,21 @@
   </div>
 </section>
 
+<!-- VOLUNTEER RESOURCES -->
+<section class="section view-panel" id="leader">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Volunteer Resources ($7 each)</span>
+      <h2>Practical resources for the leaders in your ministry.</h2>
+      <p>Boundaries, safety, mandated reporting, tough conversations, and yearly strategy — written for real volunteer leaders, not filed away in a binder no one reads.</p>
+    </div>
+    <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:24px;background:var(--paper-alt);border:1.5px dashed var(--lav-deep);border-radius:10px;padding:12px 16px;">These are $7 each — priced to cover our time, not to gatekeep. Every one is meant to be a starting point: let us help you customize it for your own church.</p>
+    <div class="product-grid" id="leaderGrid"></div>
+  </div>
+</section>
+
 <!-- AI TOOLS -->
-<section class="section" id="ai-tools">
+<section class="section view-panel" id="ai-tools">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Low-pressure, low-tech AI</span>
@@ -477,11 +556,105 @@
 </section>
 
 <!-- ABOUT -->
-<section class="section" id="about" style="background:var(--paper-alt);border-top:1px solid var(--line);">
+<section class="section view-panel" id="about" style="background:var(--paper-alt);border-top:1px solid var(--line);">
   <div class="wrap" style="max-width:680px;">
     <span class="eyebrow">Why this exists</span>
     <h2 style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:16px;">Built by someone who's sat where you sit.</h2>
-    <p style="color:var(--ink-soft);line-height:1.7;font-size:1.02rem;">Big curriculum companies are built for big churches with big budgets and a media team. This isn't that. Every lesson here is written and tested for churches running on volunteers, a borrowed laptop, and a Sunday morning that starts in an hour. The curriculum is free — that's how we meet you. What we actually offer is affordable consulting: custom curriculum, custom graphics, and AI coaching, priced for churches on a real budget, not padded for a big one.</p>
+    <p style="color:var(--ink-soft);line-height:1.7;font-size:1.02rem;">Big curriculum companies are built for big churches with big budgets and a media team. This isn't that. Every lesson here is written and tested for student ministries running on volunteers, a borrowed laptop, and a Sunday morning that starts in an hour. The curriculum is completely free, because we just want to help. And if you ever want something built just for you, we offer affordable consulting too: custom curriculum, custom graphics, and AI coaching, priced for churches on a real budget, not padded for a big one.</p>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section view-panel" id="values">
+  <div class="wrap" style="max-width:720px;">
+    <span class="eyebrow">What we believe</span>
+    <h2>Connected to Christ and Connected to Each Other</h2>
+    <ul class="values-list">
+      <li>We are compelled by the words and actions of Jesus in all we do.</li>
+      <li>We ask, "What does love require of us?" in every situation.</li>
+      <li>We live life in community with each other.</li>
+      <li>We live life on mission with each other to restore all things.</li>
+      <li>We seek to share any advantages we have with those who are less advantaged.</li>
+      <li>We include everyone, especially those not like us.</li>
+    </ul>
+
+    <div class="scope-block">
+      <h3>Where this curriculum comes from</h3>
+      <p style="color:var(--ink-soft);font-size:0.95rem;line-height:1.7;">Every series on this site was written inside a nondenominational church in California. Like most nondenominational churches, ours holds to a few core, shared convictions: the Bible as God's inspired word, salvation by grace through faith in Jesus Christ, the Trinity — Father, Son, and Holy Spirit — and the call to love God and love others above all else. We aren't tied to any one denomination's specific traditions, structure, or secondary distinctives.</p>
+      <p style="color:var(--ink-soft);font-size:0.95rem;line-height:1.7;margin-top:14px;">Because of that, every lesson is written as a strong starting point, not a script to follow word-for-word. You know your students and your own church's tradition better than we do — feel free to adapt the language, illustrations, and application points wherever they'll land better for your context.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE & SEQUENCE -->
+<section class="section view-panel" id="scope" style="background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <span class="eyebrow">How students grow</span>
+    <h2>Our Scope &amp; Sequence</h2>
+    <p style="color:var(--ink-soft);font-size:1.02rem;margin-top:12px;max-width:680px;">Every series is built on top of a bigger picture — where a student is developmentally, and what they need next. Here's the arc we build every curriculum around.</p>
+
+    <div class="scope-block">
+      <h3>Middle School: Me · You · Us</h3>
+      <p class="scope-sub">Three years, moving from self, to others, to the whole body.</p>
+      <div class="scope-track ms">
+        <div class="scope-step">
+          <div class="step-dot"></div>
+          <div class="grade">6th grade</div>
+          <h4>Me</h4>
+          <p>Sixth graders are just starting to ask questions on their own instead of borrowing their parents' faith. This year is about helping them build a real, personal relationship with Jesus — not a performance for the room. Lessons stay simple and identity-focused: who God says they are, and why that's safe ground to stand on during a year full of change.</p>
+          <div class="verse">📖 Psalm 139:14 — "I am fearfully and wonderfully made."</div>
+        </div>
+        <div class="scope-step">
+          <div class="step-dot"></div>
+          <div class="grade">7th grade</div>
+          <h4>You</h4>
+          <p>Seventh grade is the year the world gets bigger. Students start noticing that the kid next to them has a story, a struggle, and feelings too — and that noticing is where empathy begins. We use this year to move students from self-focus toward service: small, concrete ways to put someone else first, well before it feels natural.</p>
+          <div class="verse">📖 Philippians 2:3–4 — value others above yourselves, looking to their interests too.</div>
+        </div>
+        <div class="scope-step">
+          <div class="step-dot"></div>
+          <div class="grade">8th grade</div>
+          <h4>Us</h4>
+          <p>By eighth grade, students are ready to stop treating church as something that happens to them and start seeing themselves as part of it. This year is about ownership of the group — realizing their choices affect the whole room, and that they can actually do something meaningful together now, not just wait to grow up first.</p>
+          <div class="verse">📖 1 Corinthians 12:27 — "You are the body of Christ, and each one of you is a part of it."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scope-block">
+      <h3>High School: Belong · Explore · Own · Lead</h3>
+      <p class="scope-sub">Four years, four postures — each one building on the last.</p>
+      <div class="scope-track hs">
+        <div class="scope-step">
+          <div class="step-dot"></div>
+          <div class="grade">9th grade</div>
+          <h4>Belong</h4>
+          <p>Freshman year is a fresh start — new school, new social map, and often a real question of whether they still belong anywhere. Before we ask a ninth grader to believe anything complicated, we want them to feel safely, unmistakably at home: known by name, missed when they're gone, and sure their place here isn't conditional on performing.</p>
+          <div class="verse">📖 Ephesians 2:19 — "You are fellow citizens with God's people and also members of his household."</div>
+        </div>
+        <div class="scope-step">
+          <div class="step-dot"></div>
+          <div class="grade">10th grade</div>
+          <h4>Explore</h4>
+          <p>Sophomores are old enough to start asking real questions — and we want them asking them here, not just online at 1am. This year makes room for genuine exploration: what do I actually believe, as opposed to what I was told to believe, and why? We'd rather a student wrestle honestly in a small group than perform a certainty they don't actually feel.</p>
+          <div class="verse">📖 1 Peter 3:15 — always be ready to give a reason for the hope that is in you.</div>
+        </div>
+        <div class="scope-step">
+          <div class="step-dot"></div>
+          <div class="grade">11th grade</div>
+          <h4>Own</h4>
+          <p>Junior year is where faith either becomes theirs or stays borrowed. Students are old enough now to make real commitments — not because a parent or leader is watching, but because they've actually decided it's true. We push toward ownership here: personal habits, personal convictions, and a faith that would survive leaving this room.</p>
+          <div class="verse">📖 Joshua 24:15 — "Choose for yourselves this day whom you will serve."</div>
+        </div>
+        <div class="scope-step">
+          <div class="step-dot"></div>
+          <div class="grade">12th grade</div>
+          <h4>Lead</h4>
+          <p>Seniors are about to leave — so this year is about handing off what they've been given, not just receiving more of it. We push seniors into real leadership: discipling younger students, running small groups, being the leader a nervous freshman needed three years ago. The goal isn't just a good send-off — it's a graduate who keeps pursuing Jesus long after the ministry can't reach them anymore.</p>
+          <div class="verse">📖 2 Timothy 2:2 — entrust what you've learned to reliable people who will teach others also.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -490,13 +663,17 @@
     <div class="footer-grid">
       <div>
         <h4>The Sunday Folder</h4>
-        <p>Affordable curriculum and custom ministry support for small churches across the U.S.</p>
+        <p>Free student ministry curriculum and affordable consulting for small churches across the U.S.</p>
       </div>
       <div>
         <h4>Explore</h4>
-        <a href="#services">Consulting</a>
-        <a href="#shop">Free Curriculum</a>
-        <a href="#ai-tools">AI Tools</a>
+        <a href="#" class="view-link" data-view="shop">Free Curriculum</a>
+        <a href="#" class="view-link" data-view="services">Consulting</a>
+        <a href="#" class="view-link" data-view="leader">Volunteer Resources</a>
+        <a href="#" class="view-link" data-view="ai-tools">AI Tools</a>
+        <a href="#" class="view-link" data-view="values">What We Believe</a>
+        <a href="#" class="view-link" data-view="scope">Scope &amp; Sequence</a>
+        <a href="#" class="view-link" data-view="about">Why This Exists</a>
       </div>
       <div>
         <h4>Contact</h4>
@@ -574,6 +751,25 @@
   }
 
   function allProducts(){ return products.concat(aiProducts); }
+
+  function attachListeners(containerId){
+    const el = document.getElementById(containerId);
+    el.querySelectorAll('.add-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = parseInt(btn.dataset.id);
+        const product = allProducts().find(p => p.id === id);
+        if(!cart.find(i => i.id === id)){
+          cart.push(product);
+        }
+        updateCart();
+        btn.textContent = 'Added ✓';
+        setTimeout(()=>{ btn.textContent = product.price === 0 ? 'Get it free' : 'Add to cart'; }, 1200);
+      });
+    });
+    el.querySelectorAll('.preview-btn').forEach(btn => {
+      btn.addEventListener('click', () => openPreview(parseInt(btn.dataset.preview)));
+    });
+  }
 
   const lessonPreviews = {
     1: {
@@ -706,35 +902,10 @@
   document.getElementById('previewOverlay').addEventListener('click', closePreview);
 
   function renderGrids(activeCat){
-    const filtered = activeCat === 'all' ? products : products.filter(p => p.cat === activeCat);
+    const curriculum = products.filter(p => p.cat === 'sunday' || p.cat === 'camp');
+    const filtered = activeCat === 'all' ? curriculum : curriculum.filter(p => p.cat === activeCat);
     renderGrid(filtered, 'productGrid');
-    renderGrid(aiProducts, 'aiGrid');
-    attachAddListeners();
-    const note = document.getElementById('categoryNote');
-    if(activeCat === 'leader'){
-      note.textContent = "These are $7 each — priced to cover our time, not to gatekeep. Every one is meant to be a starting point: let us help you customize it for your own church.";
-      note.style.display = 'block';
-    } else {
-      note.style.display = 'none';
-    }
-  }
-
-  function attachAddListeners(){
-    document.querySelectorAll('.add-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = parseInt(btn.dataset.id);
-        const product = allProducts().find(p => p.id === id);
-        if(!cart.find(i => i.id === id)){
-          cart.push(product);
-        }
-        updateCart();
-        btn.textContent = 'Added ✓';
-        setTimeout(()=>{ btn.textContent = 'Add to cart'; }, 1200);
-      });
-    });
-    document.querySelectorAll('.preview-btn').forEach(btn => {
-      btn.addEventListener('click', () => openPreview(parseInt(btn.dataset.preview)));
-    });
+    attachListeners('productGrid');
   }
 
   function updateCart(){
@@ -767,9 +938,32 @@
   // Tabs
   document.getElementById('tabBar').addEventListener('click', (e)=>{
     if(e.target.classList.contains('tab-btn')){
-      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('#tabBar .tab-btn').forEach(b=>b.classList.remove('active'));
       e.target.classList.add('active');
       renderGrids(e.target.dataset.cat);
+    }
+  });
+
+  // Top-level view switching
+  function switchView(view){
+    document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById(view);
+    if(panel) panel.classList.add('active');
+    document.querySelectorAll('.view-tab').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+    const navWrap = document.querySelector('.view-nav-wrap');
+    if(navWrap) window.scrollTo({top: navWrap.offsetTop - 8, behavior:'smooth'});
+  }
+
+  document.getElementById('viewNav').addEventListener('click', (e) => {
+    const btn = e.target.closest('.view-tab');
+    if(btn) switchView(btn.dataset.view);
+  });
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('.view-link');
+    if(link){
+      e.preventDefault();
+      switchView(link.dataset.view);
     }
   });
 
@@ -794,6 +988,10 @@
 
   // Init
   renderGrids('all');
+  renderGrid(aiProducts, 'aiGrid');
+  attachListeners('aiGrid');
+  renderGrid(products.filter(p => p.cat === 'leader'), 'leaderGrid');
+  attachListeners('leaderGrid');
   updateCart();
 </script>
 
